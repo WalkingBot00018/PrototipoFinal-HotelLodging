@@ -1,5 +1,5 @@
 <h1>Editar Usuario</h1>
-<form method="POST" action="{{ route('user.update', $users->id) }}">
+<form method="POST" action="{{ route('user.update', $users->id_usuario) }}">
     @csrf
     @method('PUT')
     
@@ -33,5 +33,5 @@
 
     <button type="submit">Actualizar</button>
 </form>
-<a href="{{ route('user.shows', $users->id) }}">Ver Detalles</a>
+<a href="{{ route('user.shows', $users->id_usuario) }}">Ver Detalles</a>
 

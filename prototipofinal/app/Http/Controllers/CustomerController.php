@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\models\Customers;
+use App\Models\Customer;
 
-class CustomersController extends Controller
+class CustomerController extends Controller
 {
     public function index(){
         
-        $clientes = Customers::with('users')->get();
-        return view('customer.index', ['cliente' => $clientes]);
+        $clientes = Customer::with('users')->get();
+    return view('customer.index', ['cliente' => $clientes]);
     }
 
     public function create()
@@ -22,9 +22,9 @@ class CustomersController extends Controller
     public function store(Request $request)
     {
 
-        Customers::create($request->all());
+        Customer::create($request->all());
         
-        $cliente = Customers::with('users')->get();
+        $cliente = Customer::with('users')->get();
 
         return redirect()->route("customer.index")->with("success","clientes registrado exitosamente");
         
@@ -32,7 +32,7 @@ class CustomersController extends Controller
 
     public function show($id_cliente)
 {
-    $clientes = Customers::find($id_cliente);
+    $clientes = Customer::find($id_cliente);
 
     if (!$clientes) {
         // Manejar el caso cuando el usuario no existe
@@ -44,7 +44,7 @@ class CustomersController extends Controller
 
     public function edit($id_cliente)
     {
-        $clientes = Customers::find($id_cliente);
+        $clientes = Customer::find($id_cliente);
         return view('customer.edit', compact('clientes'));
     }
 
@@ -53,7 +53,7 @@ class CustomersController extends Controller
        
 
         // Actualiza el usuario
-        Customers::where('id_cliente', $id_cliente)->update($request->except('_token', '_method'));
+        Customer::where('id_cliente', $id_cliente)->update($request->except('_token', '_method'));
 
         return redirect('/cliente')->with('success', 'Usuario actualizado correctamente');
     }
@@ -65,7 +65,7 @@ class CustomersController extends Controller
 public function destroy($id_cliente)
     {
         
-        $clientes = Customers::find($id_cliente);
+        $clientes = Customer::find($id_cliente);
         $clientes->delete(); 
         return redirect('/cliente')->with('success', 'cliente eliminado correctamente');
         

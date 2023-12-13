@@ -11,7 +11,7 @@
     <input type="text" name="id_usuario"/>
 
     <label for="">fecha de registro: </label>
-    <input type="text" name="fecha_registro"/>
+    <input type="date" name="fecha_registro"/>
 
     <input type="submit" value="Create" class="btn btn-primary"/>
 

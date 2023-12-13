@@ -17,6 +17,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    protected $primaryKey = 'id_usuario';
     protected $fillable = [
         'id_rol',
         'tipo_doc',
@@ -33,8 +34,12 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Roles::class, 'id_rol', 'id_rol');
     }
-    public function customers(){
-        return $this->hasMany(Customers::class, 'id_cliente', 'id_cliente');
+    public function customer(){
+        return $this->hasMany(Customer::class, 'id_cliente', 'id_cliente');
+    }
+
+    public function employee(){
+        return $this->hasMany(Employee::class, 'id', 'id');
     }
 
     /**

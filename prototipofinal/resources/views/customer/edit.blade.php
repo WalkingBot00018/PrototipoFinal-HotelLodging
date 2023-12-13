@@ -4,10 +4,10 @@
     @method('PUT')
 
     <label for="">id del usuario: </label>
-    <input type="text" name="id_usuario" value="{{ $clientes->id_cliente }}"/>
+    <input type="text" name="id_usuario" value="{{ $clientes->id_usuario }}"/>
 
     <label for="">fecha de registro: </label>
-    <input type="text" name="fecha_registro" value="{{ $clientes->fecha_registro }}"/>
+    <input type="date" name="fecha_registro" value="{{ $clientes->fecha_registro }}"/>
 
 
 

@@ -32,7 +32,7 @@ return new class extends Migration
             $table->foreign('id_estado_hab')->references('id_estado_hab')->on('room_status')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('id_metodo_pago')->references('id_metodo_pago')->on('payment_method')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('id_estado_reserva')->references('id_estado_reserva')->on('reservation_status')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('id_cliente')->references('id_cliente')->on('customers')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('id_cliente')->references('id_cliente')->on('customer')->onDelete('cascade')->onUpdate('cascade');
 
             
         });

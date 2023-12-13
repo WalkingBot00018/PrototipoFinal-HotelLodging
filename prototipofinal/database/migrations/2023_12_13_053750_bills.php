@@ -24,7 +24,7 @@ return new class extends Migration
             $table->timestamps();
 
 
-            $table->foreign('id_cliente')->references('id_cliente')->on('customers')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('id_cliente')->references('id_cliente')->on('customer')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('id_reserva')->references('id_reserva')->on('reservations')->onDelete('cascade')->onUpdate('cascade');
         });
     }

@@ -28,9 +28,9 @@ class UserController extends Controller
         return redirect()->route("user.index")->with("success","usuario registrado exitosamente");
         
     }
-    public function show($id)
+    public function show($id_usuario)
 {
-    $user = User::find($id);
+    $user = User::find($id_usuario);
 
     if (!$user) {
         // Manejar el caso cuando el usuario no existe
@@ -41,18 +41,18 @@ class UserController extends Controller
 }
 
 
-public function edit($id)
+public function edit($id_usuario)
     {
-        $users = User::find($id);
+        $users = User::find($id_usuario);
         return view('user.edit', compact('users'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_usuario)
     {
        
 
         // Actualiza el usuario
-        User::where('id', $id)->update($request->except('_token', '_method'));
+        User::where('id_usuario', $id_usuario)->update($request->except('_token', '_method'));
 
         return redirect('/usuarios')->with('success', 'Usuario actualizado correctamente');
     }
@@ -61,10 +61,10 @@ public function edit($id)
 
     
 
-public function destroy($id)
+public function destroy($id_usuario)
     {
         
-        $users = User::find($id);
+        $users = User::find($id_usuario);
         $users->delete(); 
         return redirect('/usuarios')->with('success', 'Usuario eliminado correctamente');
         

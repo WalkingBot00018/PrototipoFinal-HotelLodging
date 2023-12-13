@@ -12,9 +12,9 @@
         <span>{{ $user->nombre_usuario }}</span>
         <span>{{ $user->roles ? $user->roles->nombre_rol : 'sin rol' }}</span>
         <div class="user-actions">
-            <a href="{{ route('user.shows', $user->id) }}">Ver</a>
-            <a href="{{ route('user.edit', $user->id) }}">Editar</a>
-            <form method="POST" action="{{ route('user.destroy', $user->id) }}">
+            <a href="{{ route('user.shows', $user->id_usuario) }}">Ver</a>
+            <a href="{{ route('user.edit', $user->id_usuario) }}">Editar</a>
+            <form method="POST" action="{{ route('user.destroy', $user->id_usuario) }}">
                 @csrf
                 @method('DELETE')
                 <input type="submit" class="btn btn-danger btn-sm" value="Eliminar">
